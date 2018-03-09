@@ -13,7 +13,6 @@ class Home extends Component {
 
     componentDidMount() {
         axios.get('/api/shelves/').then(res => {
-            console.log(res.data)
             this.setState({ list: res.data })
         })
     }
