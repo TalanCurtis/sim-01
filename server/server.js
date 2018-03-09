@@ -19,7 +19,7 @@ massive({ connectionString: CONNECTION_STRING }).then(db => {
 const bodyParser=require('body-parser');
 
 // Top level middleware
-app.use( express.static( `${__dirname}/../build` ) );
+// app.use( express.static( `${__dirname}/../build` ) );
 app.use(bodyParser.json())
 
 // Controller Imports
@@ -35,6 +35,12 @@ app.get('/api/test', (req, res, next)=>{
 })
 
 ////
+app.get('/api/shelves/', (req, res)=>{
+    const db = req.app.get('db')
+    db.s1_shelves.find().then(dbRes=>{
+        res.status(200).send(dbRes)
+    })
+})
 app.get('/api/shelf/:id', (req, res)=>{
     const db = req.app.get('db')
     db.get_shelf([req.params.id]).then(dbRes=>{

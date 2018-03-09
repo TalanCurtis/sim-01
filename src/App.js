@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './Reset.css';
 import './App.css';
+import { HashRouter } from 'react-router-dom';
+import routes from './routes'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        sim 01
-      </div>
+      <HashRouter>
+        <div className="App">
+          {routes}
+        </div>
+      </HashRouter>
     );
   }
 }
