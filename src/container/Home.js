@@ -14,6 +14,7 @@ class Home extends Component {
     componentDidMount() {
         axios.get('/api/shelves/').then(res => {
             this.setState({ list: res.data })
+            console.log(this.state)
         })
     }
 

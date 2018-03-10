@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import '../EditBin/EditBin.css';
-import { Link } from 'react-router-dom';
 
-class EditBin extends Component {
+class CreateBin extends Component {
     constructor() {
         super();
         this.state = {
@@ -24,37 +22,32 @@ class EditBin extends Component {
         })
     }
 
-    // handleEdit(){
-    //     console.log('handle edit')
-    // }
-    // handleDelete(){
-    //     console.log('handle delete')
-    // }
-
     test(){
         console.log('props: ',this.props)
     }
-
+    
     render() {
+        let randomNum = Math.floor(Math.random() * Math.floor(200));
+        console.log(randomNum)
         return (
             <div className="EditBin">
                 <img src="https://robohash.org/1" alt="" height="100px" width="100px" />
                 <div>
-                    <h1>Name: {this.props.bin.name}</h1>
+                    <h1>Name: </h1>
                     <input title="name" type="text" onChange={(e) => (this.handleOnChange(e.target.title, e.target.value))} />
                 </div>
                 <div>
-                    <h1>Price: {this.props.bin.price}</h1>
-                    <input title="price" type="number" min='0.00' onChange={(e) => (this.handleOnChange(e.target.title, e.target.value*1))} />
+                    <h1>Price:</h1>
+                    <input title="price" type="number" min='0.00' onChange={(e) => (this.handleOnChange(e.target.title, e.target.value * 1))} />
                 </div>
                 <div>
-                    <button onClick={()=>this.props.handleEditBin(this.state.input)}>Edit</button>
-                    <button onClick={this.props.handleDeleteBin}>Delete</button>
-                    <button onClick={()=>this.test()}>props</button>
+                    <button>Cancel</button>
+                    <button>Create</button>
+                    <button onClick={() => this.test()}>props</button>
                 </div>
             </div>
         )
     }
 }
 
-export default EditBin
+export default CreateBin;
