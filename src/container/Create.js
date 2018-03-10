@@ -10,11 +10,11 @@ class Create extends Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log('create props',this.props)
         return (
             <div className="Edit">
                 <Header />
-                <CreateBin />
+                <CreateBin shelf_id={this.props.match.params.shelf_id*1}  bin_slot={this.props.match.params.bin_slot*1}/>
             </div>
         )
     }

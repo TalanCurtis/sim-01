@@ -59,17 +59,25 @@ app.put('/api/bin/:id', (req, res)=>{
         res.status(200).send(dbRes)
     })
 })
+app.put('/api/addToShelf/', (req, res)=>{
+    const db = req.app.get('db')
+    console.log('im here')
+    db.add_bin_to_shelf([req.body.id, req.body.field,  req.body.bin]).then(dbRes=>{
+        res.status(200).send(dbRes)
+    })
+})
 app.delete('/api/bin/:id', (req, res)=>{
     const db = req.app.get('db')
     db.delete_bin([req.params.id]).then(dbRes=>{
-        res.status(200).send()
+        res.status(200).send(dbRes)
     })
 })
-app.post('/api/bin/:id', (req, res)=>{
+app.post('/api/bin/', (req, res)=>{
     const db = req.app.get('db')
-    const id = req.params.id*1
+    // const id = req.params.id*1
+    console.log(res.body)
     const {shelf_id , bin , name, price, image} = req.body
-    db.add_bin([id, bin, shelf_id , name, price, image]).then(dbRes=>{
+    db.add_bin([bin, shelf_id , name, price, image]).then(dbRes=>{
         res.status(200).send(dbRes)
     })
 })
