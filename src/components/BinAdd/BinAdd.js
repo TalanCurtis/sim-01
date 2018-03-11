@@ -34,18 +34,10 @@ class BinAdd extends Component {
     }
 
     handleAdd() {
-        console.log('handle add')
         let body = Object.assign({}, this.state.bin, this.state.input)
-        console.log(body)
         axios.post('/api/bin/'+this.props.match.params.bin_id, body).then(res=>{
-            console.log('Added: ', res.data[0])
             this.props.history.goBack()
         })
-    }
-
-    test() {
-        console.log('props: ', this.props)
-        console.log('state: ', this.state)
     }
 
     render() {
@@ -66,7 +58,6 @@ class BinAdd extends Component {
                 </div>
                 <div>
                     <button disabled={!requiredInputs} onClick={() => this.handleAdd()}>Add to Inventory</button>
-                    <button onClick={() => this.test()}>props</button>
                 </div>
             </div>
         )

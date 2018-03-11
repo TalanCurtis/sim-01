@@ -14,29 +14,25 @@ class Shelf extends Component {
     componentDidMount() {
         axios.get('/api/shelf/' + this.props.match.params.id).then(res => {
             this.setState({ bins: res.data })
-            console.log(this.state)
         })
     }
 
     render() {
-        console.log(this.props)
         // map over bins if null display add if  not null display bin name
         const bins = this.state.bins.map((x, i) => {
             if (x) {
-                console.log('valid')
                 return (
                     <div key={i}>
                         <Link to={this.props.location.pathname + '/' + x.bin_id}>
-                            <button>{"Bin " + (i + 1)}</button>
+                            <button className='bigButton'>{"Bin " + (i + 1)}</button>
                         </Link>
                     </div>
                 )
             } else {
-                console.log('null')
                 return (
                     <div key={i}>
                         <Link to={this.props.location.pathname + '/add/'+ this.props.match.params.id+(i+1)}>
-                            <button>{"+ Add"}</button>
+                            <button className='bigButton empty'>{"+ Add"}</button>
                         </Link>
                     </div>
                 )

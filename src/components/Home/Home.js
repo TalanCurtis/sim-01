@@ -9,7 +9,7 @@ function Home() {
             return (
                 <div key={i}>
                     <Link to={"/Shelf/" + x}>
-                        <button>{"Shelf " + x}</button>
+                        <button className='bigButton'>{"Shelf " + x}</button>
                     </Link>
                 </div>
             )

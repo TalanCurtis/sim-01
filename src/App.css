@@ -45,3 +45,28 @@
 .Save{
   background-color:green;
 }
+
+.bigButton{
+  width: 400px;
+  height: 40px;
+  margin: 5px;
+  background-color: #D34735;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+
+}
+
+.empty{
+  background-color: #FFB8AF;
+}
+
+.Link{
+  text-decoration: none;
+  color:white;
+}
+h1{
+  color:white;
+}
+

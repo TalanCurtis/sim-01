@@ -36,30 +36,19 @@ class BinEdit extends Component {
     }
 
     handleEdit(){
-        console.log('handle edit')
         this.setState({inEdit: true})
     }
     handleDelete(){
-        console.log('handle delete')
         axios.delete('/api/bin/'+this.props.match.params.bin_id).then(res=>{
-            console.log(res.data)
             this.props.history.goBack()
         })
     }
     handleSave(){
-        console.log('handle save')
         this.setState({inEdit: false})
         let body = Object.assign({}, this.state.bin, this.state.input)
-        console.log(body)
         axios.put('/api/bin/'+this.props.match.params.bin_id, body).then(res=>{
-            console.log('saved: ', res.data[0])
             this.props.history.goBack()
         })
-    }
-
-    test(){
-        console.log('props: ',this.props)
-        console.log('state: ',this.state)
     }
 
     render() {
@@ -80,7 +69,6 @@ class BinEdit extends Component {
                 <div>
                     {this.state.inEdit?<button className="Save" onClick={()=>this.handleSave()}>Save</button>: <button onClick={()=>this.handleEdit()}>Edit</button>}
                     <button onClick={()=>this.handleDelete()}>Delete</button>
-                    <button onClick={()=>this.test()}>props</button>
                 </div>
             </div>
         )
