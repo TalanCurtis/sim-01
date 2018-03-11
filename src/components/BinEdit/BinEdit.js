@@ -3,7 +3,7 @@ import '../BinEdit/BinEdit.css';
 import Header from '../Header/Header';
 import axios from 'axios';
 
-class EditBin extends Component {
+class BinEdit extends Component {
     constructor() {
         super();
         this.state = {
@@ -64,7 +64,7 @@ class EditBin extends Component {
 
     render() {
         return (
-            <div className="EditBin">
+            <div className="BinEdit">
                 <Header title={'Shelf '+this.props.match.params.id} subTitle={'Bin '+this.props.match.params.bin_id}/>
                 <div>
                     <img src={this.state.bin.image} alt="" height="200px" width="200px"/>
@@ -87,4 +87,4 @@ class EditBin extends Component {
     }
 }
 
-export default EditBin
+export default BinEdit
