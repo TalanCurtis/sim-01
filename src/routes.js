@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 // import containers
 // import Home from './components/Home/Home';
 // import Bins from './components/Bins/Bins';
@@ -7,9 +7,13 @@ import {Route, Switch} from 'react-router-dom';
 // ////
 // import Edit from './container/Edit';
 // import Create from './container/Create';
+import Home from './components/Home/Home';
+import Shelf from './components/Shelf/Shelf';
 
 export default (
     <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/Shelf/:id' component={Shelf} />
         {/* <Route exact path='/' component={Home} />
         <Route path='/Shelf/:id/add/:bin_id' component={BinAdd}/>
         <Route path='/Shelf/:id' component={Bins} />

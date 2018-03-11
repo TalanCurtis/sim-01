@@ -44,8 +44,15 @@ app.get('/api/test', (req, res, next) => {
 // })
 app.get('/api/shelf/:id', (req, res) => {
     const db = req.app.get('db')
-    db.get_shelf().then(dbRes => {
-        res.status(200).send(dbRes)
+    db.get_shelf([req.params.id]).then(dbRes => {
+
+        // change the db response to have null values where there is not match
+        let newRes = [null, null, null, null, null]
+        for (let i in dbRes) {
+            let index = (dbRes[i].bin_id.split('').pop() * 1) -1
+            newRes.splice(index,1, dbRes[i])
+        }
+        res.status(200).send(newRes)
     })
 })
 // app.get('/api/shelf/:id', (req, res) => {
