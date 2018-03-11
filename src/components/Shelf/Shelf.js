@@ -10,7 +10,7 @@ class Shelf extends Component {
             bins: []
         }
     }
-    
+
     componentDidMount() {
         axios.get('/api/shelf/' + this.props.match.params.id).then(res => {
             this.setState({ bins: res.data })
@@ -49,7 +49,6 @@ class Shelf extends Component {
             </div>
         )
     }
-
 }
 
 export default Shelf;

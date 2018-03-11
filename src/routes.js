@@ -9,10 +9,12 @@ import { Route, Switch } from 'react-router-dom';
 // import Create from './container/Create';
 import Home from './components/Home/Home';
 import Shelf from './components/Shelf/Shelf';
+import BinEdit from './components/BinEdit/BinEdit';
 
 export default (
     <Switch>
         <Route exact path='/' component={Home} />
+        <Route path='/Shelf/:id/:bin_id' component={BinEdit} />
         <Route path='/Shelf/:id' component={Shelf} />
         {/* <Route exact path='/' component={Home} />
         <Route path='/Shelf/:id/add/:bin_id' component={BinAdd}/>
