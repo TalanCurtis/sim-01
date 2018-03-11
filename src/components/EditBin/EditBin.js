@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../EditBin/EditBin.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class EditBin extends Component {
     constructor() {

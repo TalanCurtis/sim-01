@@ -8,8 +8,8 @@ class Header extends Component {
         return (
             <div className="Header">
                 <Link to="/"><button>Home</button></Link>
-                <h1>Title 1</h1>
-                <h1>Title 2</h1>
+                <h1>{this.props.title}</h1>
+                <h1>{this.props.subTitle}</h1>
             </div>
         )
     }

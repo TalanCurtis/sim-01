@@ -1,2 +1,2 @@
 select * from s1_bins
-where id = $1
+where bin_id = $1
