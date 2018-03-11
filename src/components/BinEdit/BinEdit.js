@@ -41,6 +41,10 @@ class EditBin extends Component {
     }
     handleDelete(){
         console.log('handle delete')
+        axios.delete('/api/bin/'+this.props.match.params.bin_id).then(res=>{
+            console.log(res.data)
+            this.props.history.goBack()
+        })
     }
     handleSave(){
         console.log('handle save')
@@ -49,6 +53,7 @@ class EditBin extends Component {
         console.log(body)
         axios.put('/api/bin/'+this.props.match.params.bin_id, body).then(res=>{
             console.log('saved: ', res.data[0])
+            this.props.history.goBack()
         })
     }
 

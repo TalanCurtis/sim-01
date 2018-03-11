@@ -61,12 +61,12 @@ app.put('/api/bin/:id', (req, res) => {
         res.status(200).send(dbRes)
     })
 })
-// app.delete('/api/bin/:id', (req, res) => {
-//     const db = req.app.get('db')
-//     db.delete_bin([req.params.id]).then(dbRes => {
-//         res.status(200).send(dbRes)
-//     })
-// })
+app.delete('/api/bin/:id', (req, res) => {
+    const db = req.app.get('db')
+    db.delete_bin([req.params.id]).then(dbRes => {
+        res.status(200).send('Bin Deleted')
+    })
+})
 // app.post('/api/bin/:id', (req, res) => {
 //     const db = req.app.get('db')
 //     db.delete_bin([req.params.id]).then(dbRes => {
